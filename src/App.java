@@ -1,16 +1,11 @@
+import br.com.dio.model.Board;
 import static br.com.dio.util.BoardTemplate.BOARD_TEMPLATE;
+import java.util.Map;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import br.com.dio.model.Board;
-import br.com.dio.model.Space;
 
 public class App {
     private final static Scanner scanner = new Scanner(System.in);
