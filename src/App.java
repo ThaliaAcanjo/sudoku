@@ -61,20 +61,7 @@ public class App {
             System.out.println("Jogo já foi iniciado!");
             return;
         }
-        List<List<Space>> spaces = new ArrayList<>();
         
-        for (int i = 0; i < BORD_LIMIT; i++) {
-            spaces.add(new ArrayList<>());
-            for (int j = 0; j < BORD_LIMIT; j++) {
-                var positionConfig = positions.get("%s,%s".formatted(i, j));
-                var expected = Integer.parseInt(positionConfig.split(",")[0]);
-                var fixed = Boolean.parseBoolean(positionConfig.split(",")[1]);
-
-                var currentSpace = new Space(expected, fixed);
-                spaces.get(i).add(currentSpace);
-            }            
-        }
-        board = new Board(spaces);
         System.out.println("Jogo iniciado!");        
     }      
     
