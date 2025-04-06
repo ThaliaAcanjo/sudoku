@@ -36,9 +36,22 @@ public class Board {
         if (getStatus() == NON_STARTED)
             return false;
                 
+        // for no spaces para validar qual está errado
+        // for (var space : spaces) {
+        //     for (var s : space) {
+        //         if (!s.isFixed() && 
+        //             nonNull(s.getActual()) && 
+        //             !s.getActual().equals(s.getExpected())) {
+        //             return true;
+        //         }
+        //     }
+        
+        // }
+
         return spaces.stream().
                     flatMap(Collection::stream).
-                    anyMatch(s -> nonNull(s.getActual()) && !s.getActual().equals(s.getExpected()));
+                    anyMatch(s -> nonNull(s.getActual()) && 
+                             !s.getActual().equals(s.getExpected()));
     }
 
     public boolean changeValue(final int col, final int row, final int value){

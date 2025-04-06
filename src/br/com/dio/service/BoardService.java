@@ -10,7 +10,8 @@ import br.com.dio.model.Space;
 
 public class BoardService {
     private final static int BORD_LIMIT = 9;
-    private final Board board;
+    private Board board;
+    
 
     public BoardService(final Map<String, String> gameConfig)  {        
         board = new Board(initBoard(gameConfig));
@@ -21,7 +22,7 @@ public class BoardService {
     }
 
     public void reset(){
-        this.board.reset();
+        this.board.reset();        
     }
 
     public boolean hasErrors(){
@@ -32,14 +33,18 @@ public class BoardService {
         return board.getStatus();
     }
 
-    public boolean isCompleted() {
+    public boolean isFinish() {
         return board.isCompleted();
     }
 
     public void changeValue(final int col, final int row, final int value){
         board.changeValue(col, row, value);
     }
-
+    
+    public void updateBoard(Map<String, String> gameConfig) {
+        this.board = new Board(initBoard(gameConfig));  // Atualiza o tabuleiro
+    }
+    
     private List<List<Space>> initBoard(Map<String, String> gameConfig) {
         List<List<Space>> spaces = new ArrayList<>();
         
